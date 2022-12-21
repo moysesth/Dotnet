@@ -37,12 +37,15 @@ namespace Cliente.services
             using (StreamReader r = new StreamReader(path))
             {
                 string json;
+                Console.WriteLine("Abaixo estão os clientes cadastrados:");
+                Console.WriteLine("\n");
                 while ((json = r.ReadLine()) != null)
                 {
                     var cliente = JsonSerializer.Deserialize<Clientes>(json);
-                    Console.WriteLine(cliente.IdCliente);
-                    Console.WriteLine("--------------------------");
+                    Console.WriteLine($"ID: {cliente.IdCliente} | Nome: {cliente.NomeCliente} | Documento: {cliente.DocumentoCliente} | Tipo Cadastro: {cliente.TipoCliente}");
+                    Console.WriteLine("----------------------------------------------------------------");
                 }
+                Console.WriteLine("\n");
                 Console.WriteLine("Aperte qualquer tecla para voltar ao menu inicial");
                 Console.ReadKey();
             }
